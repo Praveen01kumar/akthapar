@@ -1,0 +1,251 @@
+<div style="display: flex;justify-content: center;
+flex-wrap: wrap;
+margin: 20px;
+padding: 20px;
+gap: 10px;
+border: 1px solid green;">
+  <ng-container *ngIf="jobListData">
+    <ng-container *ngFor="let jobs of jobListData">
+      <div style="width: 24%;">
+        <h2>{{jobs?.post_name}}</h2>
+        <div style="height: 40vh;
+        overflow-y: scroll;">
+          <ng-container *ngFor="let item of jobs?.postdata">
+            <button class="btn btn-success w-100 rounded-0 my-1"
+              (click)="GetHtml(item?.id)">{{item?.data_name}}</button>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
+
+<div class="sectionbox" style="flex-direction: column;border: 0;">
+  <div class="innerHTMLData1" [innerHTML]="innerHtmlData1"></div>
+  <div class="innerHTMLData" [innerHTML]="innerHtmlData2"></div>
+</div>
+
+
+<div class="sectionbox">
+  <div style="width: 100%;">
+    <div class="register-form pt-3">
+      <h3>Signup</h3>
+      <form [formGroup]="UserSignupform" (ngSubmit)="UserSignup()"
+        style="display: flex;flex-wrap: wrap;justify-content: space-between;align-items: center;">
+
+        <div class="form-group" style="width: 48%;">
+          <label>First Name</label>
+          <input type="text" formControlName="first_name" class="form-control"
+            [ngClass]="{ 'is-invalid': subUserSignup && fup['first_name'].errors }" />
+          <div *ngIf="subUserSignup && fup['first_name'].errors" class="invalid-feedback">
+            <div *ngIf="fup['first_name'].errors['required']">First Name is required</div>
+          </div>
+        </div>
+        <div class="form-group" style="width: 48%;">
+          <label>Last Name</label>
+          <input type="text" formControlName="last_name" class="form-control"
+            [ngClass]="{ 'is-invalid': subUserSignup && fup['last_name'].errors }" />
+          <div *ngIf="subUserSignup && fup['last_name'].errors" class="invalid-feedback">
+            <div *ngIf="fup['last_name'].errors['required']">Last Name is required</div>
+          </div>
+        </div>
+        <div class="form-group" style="width: 48%;">
+          <label>Email</label>
+          <input type="text" formControlName="email" class="form-control"
+            [ngClass]="{ 'is-invalid': subUserSignup && fup['email'].errors }" />
+          <div *ngIf="subUserSignup && fup['email'].errors" class="invalid-feedback">
+            <div *ngIf="fup['email'].errors['required']">Email is required</div>
+          </div>
+        </div>
+        <div class="form-group" style="width: 48%;">
+          <label>Username</label>
+          <input type="text" formControlName="username" class="form-control"
+            [ngClass]="{ 'is-invalid': subUserSignup && fup['username'].errors }" />
+          <div *ngIf="subUserSignup && fup['username'].errors" class="invalid-feedback">
+            <div *ngIf="fup['username'].errors['required']">Username is required</div>
+          </div>
+        </div>
+        <div class="form-group" style="width: 48%;">
+          <label>Password</label>
+          <input type="password" formControlName="password" class="form-control"
+            [ngClass]="{ 'is-invalid': subUserSignup && fup['password'].errors }" />
+          <div *ngIf="subUserSignup && fup['password'].errors" class="invalid-feedback">
+            <div *ngIf="fup['password'].errors['required']">Password is required</div>
+            <div *ngIf="fup['password'].errors['minlength']">Min Length 6 is required</div>
+            <div *ngIf="fup['password'].errors['maxlength']">Max Length 14 is required</div>
+          </div>
+        </div>
+        <div class="form-group" style="width: 48%;">
+          <label>Profile Image</label>
+          <input type="file" (change)="onSelectedUpfile($event)" class="form-control" />
+        </div>
+        <div class="form-group" style="width: 48%;">
+          <label>Phone</label>
+          <input type="text" formControlName="phone" class="form-control"
+            [ngClass]="{ 'is-invalid': subUserSignup && fup['phone'].errors }" />
+          <div *ngIf="subUserSignup && fup['phone'].errors" class="invalid-feedback">
+            <div *ngIf="fup['phone'].errors['required']">Phone is required</div>
+            <div *ngIf="fup['phone'].errors['minlength']">Min Length 8 is required</div>
+            <div *ngIf="fup['phone'].errors['maxlength']">Max Length 14 is required</div>
+          </div>
+        </div>
+        <div class="form-group" style="width: 48%;">
+          <label>Address</label>
+          <input type="text" formControlName="address" class="form-control"
+            [ngClass]="{ 'is-invalid': subUserSignup && fup['address'].errors }" />
+          <div *ngIf="subUserSignup && fup['address'].errors" class="invalid-feedback">
+            <div *ngIf="fup['address'].errors['required']">Address is required</div>
+          </div>
+        </div>
+        <div class="form-group" style="width: 48%;">
+          <label>City</label>
+          <input type="text" formControlName="city" class="form-control"
+            [ngClass]="{ 'is-invalid': subUserSignup && fup['city'].errors }" />
+          <div *ngIf="subUserSignup && fup['city'].errors" class="invalid-feedback">
+            <div *ngIf="fup['city'].errors['required']">City is required</div>
+          </div>
+        </div>
+        <div class="form-group" style="width: 48%;">
+          <label>State</label>
+          <input type="text" formControlName="state" class="form-control"
+            [ngClass]="{ 'is-invalid': subUserSignup && fup['state'].errors }" />
+          <div *ngIf="subUserSignup && fup['state'].errors" class="invalid-feedback">
+            <div *ngIf="fup['state'].errors['required']">State is required</div>
+          </div>
+        </div>
+        <div class="form-group" style="width: 48%;">
+          <label>Zip Code</label>
+          <input type="text" formControlName="zip_code" class="form-control"
+            [ngClass]="{ 'is-invalid': subUserSignup && fup['zip_code'].errors }" />
+          <div *ngIf="subUserSignup && fup['zip_code'].errors" class="invalid-feedback">
+            <div *ngIf="fup['zip_code'].errors['required']">Zip Code is required</div>
+            <div *ngIf="fup['zip_code'].errors['minlength']">Min Length 5 is required</div>
+            <div *ngIf="fup['zip_code'].errors['maxlength']">Max Length 6 is required</div>
+          </div>
+        </div>
+        <div class="form-group" style="width: 48%;">
+          <label>Country</label>
+          <input type="text" formControlName="country" class="form-control"
+            [ngClass]="{ 'is-invalid': subUserSignup && fup['country'].errors }" />
+          <div *ngIf="subUserSignup && fup['country'].errors" class="invalid-feedback">
+            <div *ngIf="fup['country'].errors['required']">Country is required</div>
+          </div>
+        </div>
+        <div class="form-group" style="width: 48%;">
+          <label>Birth Date</label>
+          <input type="date" formControlName="birth_date" class="form-control"
+            [ngClass]="{ 'is-invalid': subUserSignup && fup['birth_date'].errors }" />
+          <div *ngIf="subUserSignup && fup['birth_date'].errors" class="invalid-feedback">
+            <div *ngIf="fup['birth_date'].errors['required']">Birth Date is required</div>
+          </div>
+        </div>
+        <div class="form-group" style="width: 48%;">
+          <label>Site Url</label>
+          <input type="text" formControlName="site_url" class="form-control"
+            [ngClass]="{ 'is-invalid': subUserSignup && fup['site_url'].errors }" />
+          <div *ngIf="subUserSignup && fup['site_url'].errors" class="invalid-feedback">
+            <div *ngIf="fup['site_url'].errors['required']">Site Url is required</div>
+          </div>
+        </div>
+        <div class="form-group" style="width: 48%;">
+          <label>Gender</label>
+          <input type="text" formControlName="gender" class="form-control"
+            [ngClass]="{ 'is-invalid': subUserSignup && fup['gender'].errors }" />
+          <div *ngIf="subUserSignup && fup['gender'].errors" class="invalid-feedback">
+            <div *ngIf="fup['gender'].errors['required']">Gender is required</div>
+          </div>
+        </div>
+
+        <div class="form-group mt-2">
+          <button type="submit" class="btn btn-primary me-3">Signup</button>
+          <button type="button" (click)="SignupReset()" class="btn btn-warning float-right"> Reset </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div style="width: 100%;">
+    <div class="register-form pt-3">
+      <h3>Signin</h3>
+      <form [formGroup]="UserSigninform" (ngSubmit)="UserSignin()">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" formControlName="username" class="form-control"
+            [ngClass]="{ 'is-invalid': subSigninform && fin['username'].errors }" />
+          <div *ngIf="subSigninform && fin['username'].errors" class="invalid-feedback">
+            <div *ngIf="fin['username'].errors['required']">Name is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>password</label>
+          <input type="password" formControlName="password" class="form-control"
+            [ngClass]="{ 'is-invalid': subSigninform && fin['password'].errors }" />
+          <div *ngIf="subSigninform && fin['password'].errors" class="invalid-feedback">
+            <div *ngIf="fin['password'].errors['required']">Password is required</div>
+          </div>
+        </div>
+        <div class="form-group mt-2">
+          <button type="submit" class="btn btn-primary me-3">Signin</button>
+          <button type="button" (click)="SigninReset()" class="btn btn-warning float-right"> Reset </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="register-form pt-3">
+      <h3>Signout</h3>
+      <form [formGroup]="UserSignoutform" (ngSubmit)="UserSignout()">
+        <div class="form-group">
+          <label>User Name</label>
+          <input type="text" formControlName="username" class="form-control"
+            [ngClass]="{ 'is-invalid': subSignoutform && fut['username'].errors }" />
+          <div *ngIf="subSignoutform && fut['username'].errors" class="invalid-feedback">
+            <div *ngIf="fut['username'].errors['required']">user name is required</div>
+          </div>
+        </div>
+        <div class="form-group mt-2">
+          <button type="submit" class="btn btn-primary me-3">Signout</button>
+          <button type="button" (click)="SignoutReset()" class="btn btn-warning float-right"> Reset </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<div class="sectionbox">
+
+  <div class="register-form pt-3">
+    <h3>Create Post</h3>
+    <form [formGroup]="CreatePostform" (ngSubmit)="CreatePost()">
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" formControlName="title" class="form-control"
+          [ngClass]="{ 'is-invalid': subPostform && crp['title'].errors }" />
+        <div *ngIf="subPostform && crp['title'].errors" class="invalid-feedback">
+          <div *ngIf="crp['title'].errors['required']">Title is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Body</label>
+        <input type="text" formControlName="body" class="form-control"
+          [ngClass]="{ 'is-invalid': subPostform && crp['body'].errors }" />
+        <div *ngIf="subPostform && crp['body'].errors" class="invalid-feedback">
+          <div *ngIf="crp['body'].errors['required']">Body is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Image</label>
+        <input type="file" (change)="onFileSelected($event)" class="form-control" />
+      </div>
+      <div class="form-group mt-2">
+        <button type="submit" class="btn btn-primary me-3">Create</button>
+        <button type="button" (click)="CreatePostReset()" class="btn btn-warning float-right"> Reset </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="text-center register-form pt-3">
+    <button class="btn btn-success" (click)="GetPost()">GetPost</button>
+  </div>
+
+</div>

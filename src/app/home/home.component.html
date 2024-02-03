@@ -1,67 +1,576 @@
-<!-- <div class="link_mail">
-    <div class="link_mail_box">
-        <div class="link_mail_head">PrepAngular</div>
-        <div class="link_he">Hello, <span> Praveen</span></div>
-        <div>
-            <p class="link_he">We've received a request to reset the password for the Stripe account
-                associated with
-                hello@SmilesDavis.yeah. No changes have been made to your account yet.
-            </p>
-            <p class="link_he">You can reset your password by clicking the link below:</p>
-        </div>
-        <div class="link_btn">
-            <button><a href="google.com" target="_blank">Reset your password</a></button>
-        </div>
-        <div>
-            <p class="link_he">If you did not request a new password, please let us know immediately by
-                replying to this email.</p>
-        </div>
-        <div>
-            <p class="link_he">You can find answers to most questions and get in touch with us at
-                <span style="cursor: pointer; color: blue;">support.prep.com.</span>
-                We're here to help you at any step along the way.
-            </p>
-        </div>
-        <div>
-            <p class="link_he">--The Prep Anglular Team!</p>
-        </div>
-        <div style="border-top: 1px solid grey;">
-            <span style="font-size: 12px;">Mohali 7 Phase Sector 61 Sahibzada Ajit Singh Nagar, Punjab 160062</span>
+<header>
+    <div class="logo"><span>Ak Thapar</span></div>
+    <nav class="desktop_view">
+        <a [href]="'#'+section?.href" *ngFor="let section of menuBar;"
+            [ngClass]="currentSectionId == section.href?'active':''"
+            (click)="isSectionActive(section.href)">{{section?.name}}</a>
+    </nav>
+    <div class="hamberger" (click)="toggleMenu()">
+        <ng-container *ngIf="!menuTg">&#9776;</ng-container>
+        <ng-container *ngIf="menuTg">&#10006;</ng-container>
+    </div>
+    <nav class="mobile_view" *ngIf="menuTg">
+        <a [href]="'#'+section?.href" *ngFor="let section of menuBar;"
+            [ngClass]="currentSectionId == section.href?'active':''"
+            (click)="isSectionActive(section.href)">{{section?.name}}</a>
+    </nav>
+</header>
+<section id="home_section">
+    <div class="main-banner-content">
+        <h1><span>Hi, I'M</span><br> AK Thapar </h1>
+        <p>A Video Vlogger to Influence the People by Actively Presenting
+            Social and Cultural Activities including Business Strategies to Empower the Large Scale
+            Audience Worldwide!</p>
+        <div class="btn-box">
+            <a href="#" target="_blank" class="default-btn">Youtube Channel</a>
+            <ul>
+                <li><a href="#" target="_blank" class="facebook"><svg width="35" height="35" viewBox="0 0 48 48"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="20" fill="#3B5998" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M29.315 16.9578C28.6917 16.8331 27.8498 16.74 27.3204 16.74C25.8867 16.74 25.7936 17.3633 25.7936 18.3607V20.1361H29.3774L29.065 23.8137H25.7936V35H21.3063V23.8137H19V20.1361H21.3063V17.8613C21.3063 14.7453 22.7708 13 26.4477 13C27.7252 13 28.6602 13.187 29.8753 13.4363L29.315 16.9578Z"
+                                fill="white" />
+                        </svg></a>
+                </li>
+                <li><a href="#" target="_blank" class="twitter">
+                        <svg width="35" height="35" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="20" fill="#1DA1F2" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M36 16.3086C35.1177 16.7006 34.1681 16.9646 33.1722 17.0838C34.1889 16.4742 34.9697 15.5095 35.3368 14.36C34.3865 14.9247 33.3314 15.3335 32.2107 15.5551C31.3123 14.5984 30.0316 14 28.6165 14C25.8975 14 23.6928 16.2047 23.6928 18.9237C23.6928 19.3092 23.7368 19.6852 23.8208 20.046C19.7283 19.8412 16.1005 17.8805 13.6719 14.9015C13.2479 15.6287 13.0055 16.4742 13.0055 17.3766C13.0055 19.0845 13.8735 20.5916 15.1958 21.4747C14.3878 21.4491 13.6295 21.2275 12.9647 20.8587V20.9203C12.9647 23.3066 14.663 25.296 16.9141 25.7496C16.5013 25.8616 16.0661 25.9224 15.6174 25.9224C15.2998 25.9224 14.991 25.8912 14.6902 25.8336C15.3166 27.7895 17.1357 29.2134 19.2899 29.2534C17.6052 30.5733 15.4822 31.3612 13.1751 31.3612C12.7767 31.3612 12.3848 31.338 12 31.2916C14.1791 32.6884 16.7669 33.5043 19.5475 33.5043C28.6037 33.5043 33.5562 26.0016 33.5562 19.4956C33.5562 19.282 33.5522 19.0693 33.5418 18.8589C34.5049 18.1629 35.34 17.2958 36 16.3086Z"
+                                fill="white" />
+                        </svg></a>
+                </li>
+                <li><a href="#" target="_blank" class="instagram">
+                        <svg width="35" height="35" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="20" fill="#C13584" />
+                            <path
+                                d="M24 14.1622C27.2041 14.1622 27.5837 14.1744 28.849 14.2321C30.019 14.2855 30.6544 14.481 31.0773 14.6453C31.6374 14.863 32.0371 15.123 32.457 15.5429C32.877 15.9629 33.137 16.3626 33.3547 16.9227C33.519 17.3456 33.7145 17.981 33.7679 19.1509C33.8256 20.4163 33.8378 20.7958 33.8378 23.9999C33.8378 27.2041 33.8256 27.5836 33.7679 28.849C33.7145 30.019 33.519 30.6543 33.3547 31.0772C33.137 31.6373 32.877 32.0371 32.4571 32.457C32.0371 32.8769 31.6374 33.1369 31.0773 33.3546C30.6544 33.519 30.019 33.7144 28.849 33.7678C27.5839 33.8255 27.2044 33.8378 24 33.8378C20.7956 33.8378 20.4162 33.8255 19.151 33.7678C17.981 33.7144 17.3456 33.519 16.9227 33.3546C16.3626 33.1369 15.9629 32.8769 15.543 32.457C15.1231 32.0371 14.863 31.6373 14.6453 31.0772C14.481 30.6543 14.2855 30.019 14.2321 28.849C14.1744 27.5836 14.1622 27.2041 14.1622 23.9999C14.1622 20.7958 14.1744 20.4163 14.2321 19.1509C14.2855 17.981 14.481 17.3456 14.6453 16.9227C14.863 16.3626 15.123 15.9629 15.543 15.543C15.9629 15.123 16.3626 14.863 16.9227 14.6453C17.3456 14.481 17.981 14.2855 19.151 14.2321C20.4163 14.1744 20.7959 14.1622 24 14.1622ZM24 12C20.741 12 20.3323 12.0138 19.0524 12.0722C17.7752 12.1305 16.9028 12.3333 16.1395 12.63C15.3504 12.9366 14.6812 13.3469 14.0141 14.0141C13.3469 14.6812 12.9366 15.3504 12.63 16.1395C12.3333 16.9028 12.1305 17.7751 12.0722 19.0524C12.0138 20.3323 12 20.741 12 23.9999C12 27.259 12.0138 27.6676 12.0722 28.9475C12.1305 30.2248 12.3333 31.0971 12.63 31.8604C12.9366 32.6495 13.3469 33.3187 14.0141 33.9859C14.6812 34.653 15.3504 35.0633 16.1395 35.3699C16.9028 35.6666 17.7752 35.8694 19.0524 35.9277C20.3323 35.9861 20.741 35.9999 24 35.9999C27.259 35.9999 27.6677 35.9861 28.9476 35.9277C30.2248 35.8694 31.0972 35.6666 31.8605 35.3699C32.6496 35.0633 33.3188 34.653 33.9859 33.9859C34.653 33.3187 35.0634 32.6495 35.37 31.8604C35.6667 31.0971 35.8695 30.2248 35.9278 28.9475C35.9862 27.6676 36 27.259 36 23.9999C36 20.741 35.9862 20.3323 35.9278 19.0524C35.8695 17.7751 35.6667 16.9028 35.37 16.1395C35.0634 15.3504 34.653 14.6812 33.9859 14.0141C33.3188 13.3469 32.6496 12.9366 31.8605 12.63C31.0972 12.3333 30.2248 12.1305 28.9476 12.0722C27.6677 12.0138 27.259 12 24 12Z"
+                                fill="white" />
+                            <path
+                                d="M24.0059 17.8433C20.6026 17.8433 17.8438 20.6021 17.8438 24.0054C17.8438 27.4087 20.6026 30.1675 24.0059 30.1675C27.4092 30.1675 30.1681 27.4087 30.1681 24.0054C30.1681 20.6021 27.4092 17.8433 24.0059 17.8433ZM24.0059 28.0054C21.7968 28.0054 20.0059 26.2145 20.0059 24.0054C20.0059 21.7963 21.7968 20.0054 24.0059 20.0054C26.2151 20.0054 28.0059 21.7963 28.0059 24.0054C28.0059 26.2145 26.2151 28.0054 24.0059 28.0054Z"
+                                fill="white" />
+                            <path
+                                d="M31.8507 17.5963C31.8507 18.3915 31.206 19.0363 30.4107 19.0363C29.6154 19.0363 28.9707 18.3915 28.9707 17.5963C28.9707 16.801 29.6154 16.1562 30.4107 16.1562C31.206 16.1562 31.8507 16.801 31.8507 17.5963Z"
+                                fill="white" />
+                        </svg></a>
+                </li>
+            </ul>
         </div>
     </div>
-</div> -->
+    <div class="shape1"><img src="assets/img/shape1.png" alt="image"></div>
+    <div class="shape2"><img src="assets/img/shape2.png" alt="image"></div>
+    <div class="shape3"><img src="assets/img/shape3.png" alt="image"></div>
+    <div class="shape4"><img src="assets/img/shape4.png" alt="image"></div>
+    <div class="shape5"><img src="assets/img/shape5.png" alt="image"></div>
+    <div class="shape6"><img src="assets/img/shape6.png" alt="image"></div>
+    <div class="shape7"><img src="assets/img/shape7.png" alt="image"></div>
+    <div class="shape8"><img src="assets/img/shape8.png" alt="image"></div>
+</section>
 
+<section id="video_section">
+    <div class="container">
+        <div class="section-title">
+            <h2>My Featured Videos</h2>
+            <a class="link-btn" href="#video_section">See All</a>
+        </div>
+        <div class="featured_videos">
+            <div class="videos_box">
+                <div class="videos-image">
+                    <img src="assets/img/featured/img1.jpg" alt="image">
+                    <span class="duration">03.05</span>
+                    <span class="icon">
+                        <svg width="20" height="20" viewBox="0 -1.5 20 20" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>video_camera_round [#964]</title>
+                            <desc>Created with Sketch.</desc>
+                            <defs>
+                            </defs>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Dribbble-Light-Preview" transform="translate(-300.000000, -3921.000000)"
+                                    fill="#ffffff">
+                                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                                        <path
+                                            d="M262,3771.3123 L262,3771.36176 L262,3773.76958 L259.767,3772.33333 L262,3771.10006 L262,3771.3123 Z M256,3774.90909 C256,3775.47782 255.552,3775.93939 255,3775.93939 L247,3775.93939 C246.448,3775.93939 246,3775.47782 246,3774.90909 L246,3770.78788 C246,3770.21915 246.448,3769.75758 247,3769.75758 L255,3769.75758 C255.552,3769.75758 256,3770.21915 256,3770.78788 L256,3774.90909 Z M248.11,3765.12121 C248.662,3765.12121 249.11,3765.58382 249.11,3766.15152 C249.11,3766.71921 248.662,3767.18182 248.11,3767.18182 C247.559,3767.18182 247.11,3766.71921 247.11,3766.15152 C247.11,3765.58382 247.559,3765.12121 248.11,3765.12121 L248.11,3765.12121 Z M253.11,3763.06061 C254.213,3763.06061 255.11,3763.98479 255.11,3765.12121 C255.11,3766.25764 254.213,3767.18182 253.11,3767.18182 C252.008,3767.18182 251.11,3766.25764 251.11,3765.12121 C251.11,3763.98479 252.008,3763.06061 253.11,3763.06061 L253.11,3763.06061 Z M262.47,3768.16576 L258,3771.0403 L258,3769.24242 C258,3768.23479 257.38,3767.39818 256.452,3767.21994 C256.809,3766.60382 257.069,3765.89085 257.069,3765.12121 C257.069,3762.84527 255.299,3761 253.09,3761 C251.473,3761 250.099,3761.99321 249.468,3763.41503 C249.056,3763.19661 248.601,3763.06061 248.105,3763.06061 C246.448,3763.06061 245.108,3764.4443 245.108,3766.15152 C245.108,3766.58218 245.112,3766.99224 245.267,3767.36418 C244.57,3767.68667 244,3768.40376 244,3769.24242 L244,3775.42424 C244,3776.5617 245.062,3778 246.167,3778 L256.167,3778 C257.271,3778 258,3776.5617 258,3775.42424 L258,3773.62636 L262.47,3776.50091 C263.137,3776.92952 264,3776.436 264,3775.62721 L264,3769.03945 C264,3768.23067 263.137,3767.73715 262.47,3768.16576 L262.47,3768.16576 Z"
+                                            id="video_camera_round-[#964]">
 
-<div class="reset_page">
-    <div class="form_box">
-        <!-- <div class="wrapper">
-            <div class="arrow">
-                <div class="line"></div>
-                <div class="line"></div>
+                                        </path>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </span>
+                    <a href="#video_section" class="popup-youtube"></a>
+                </div>
+                <div class="videos-content">
+                    <h3>
+                        <a href="#video_section">Army vet appalled at hoarding does something incredible</a>
+                    </h3>
+                    <ul class="videos-meta">
+                        <li>4.3M views</li>
+                        <li>1 day ago</li>
+                    </ul>
+                </div>
             </div>
-        </div> -->
-        <!-- <div class="wrapper1">
-            <div class="arrow">
-                <div class="line"></div>
+            <div class="videos_box">
+                <div class="videos-image">
+                    <img src="assets/img/featured/img1.jpg" alt="image">
+                    <span class="duration">03.05</span>
+                    <span class="icon">
+                        <svg width="20" height="20" viewBox="0 -1.5 20 20" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>video_camera_round [#964]</title>
+                            <desc>Created with Sketch.</desc>
+                            <defs>
+                            </defs>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Dribbble-Light-Preview" transform="translate(-300.000000, -3921.000000)"
+                                    fill="#ffffff">
+                                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                                        <path
+                                            d="M262,3771.3123 L262,3771.36176 L262,3773.76958 L259.767,3772.33333 L262,3771.10006 L262,3771.3123 Z M256,3774.90909 C256,3775.47782 255.552,3775.93939 255,3775.93939 L247,3775.93939 C246.448,3775.93939 246,3775.47782 246,3774.90909 L246,3770.78788 C246,3770.21915 246.448,3769.75758 247,3769.75758 L255,3769.75758 C255.552,3769.75758 256,3770.21915 256,3770.78788 L256,3774.90909 Z M248.11,3765.12121 C248.662,3765.12121 249.11,3765.58382 249.11,3766.15152 C249.11,3766.71921 248.662,3767.18182 248.11,3767.18182 C247.559,3767.18182 247.11,3766.71921 247.11,3766.15152 C247.11,3765.58382 247.559,3765.12121 248.11,3765.12121 L248.11,3765.12121 Z M253.11,3763.06061 C254.213,3763.06061 255.11,3763.98479 255.11,3765.12121 C255.11,3766.25764 254.213,3767.18182 253.11,3767.18182 C252.008,3767.18182 251.11,3766.25764 251.11,3765.12121 C251.11,3763.98479 252.008,3763.06061 253.11,3763.06061 L253.11,3763.06061 Z M262.47,3768.16576 L258,3771.0403 L258,3769.24242 C258,3768.23479 257.38,3767.39818 256.452,3767.21994 C256.809,3766.60382 257.069,3765.89085 257.069,3765.12121 C257.069,3762.84527 255.299,3761 253.09,3761 C251.473,3761 250.099,3761.99321 249.468,3763.41503 C249.056,3763.19661 248.601,3763.06061 248.105,3763.06061 C246.448,3763.06061 245.108,3764.4443 245.108,3766.15152 C245.108,3766.58218 245.112,3766.99224 245.267,3767.36418 C244.57,3767.68667 244,3768.40376 244,3769.24242 L244,3775.42424 C244,3776.5617 245.062,3778 246.167,3778 L256.167,3778 C257.271,3778 258,3776.5617 258,3775.42424 L258,3773.62636 L262.47,3776.50091 C263.137,3776.92952 264,3776.436 264,3775.62721 L264,3769.03945 C264,3768.23067 263.137,3767.73715 262.47,3768.16576 L262.47,3768.16576 Z"
+                                            id="video_camera_round-[#964]">
+
+                                        </path>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </span>
+                    <a href="#video_section" class="popup-youtube"></a>
+                </div>
+                <div class="videos-content">
+                    <h3>
+                        <a href="#video_section">Army vet appalled at hoarding does something incredible</a>
+                    </h3>
+                    <ul class="videos-meta">
+                        <li>4.3M views</li>
+                        <li>1 day ago</li>
+                    </ul>
+                </div>
             </div>
-        </div> -->
-        <!-- <h1 style="text-align: center; margin-top: 24px;font-size: 22px;">Can't Validate Your Account!</h1> -->
-        <!-- <h1 style="text-align: center; margin-top: 24px;font-size: 22px;">Your Account is Verified!</h1> -->
-        
-        
-        <!-- <form id="resetPasswordForm" action="/auth/reset-password" method="POST" onsubmit="submitForm(event)">
-            <div class="form_field">
-                <label for="newPassword" class="input_label">New Password:</label>
-                <input class="form_input" type="password" id="newPassword" name="newPassword" required>
+            <div class="videos_box">
+                <div class="videos-image">
+                    <img src="assets/img/featured/img1.jpg" alt="image">
+                    <span class="duration">03.05</span>
+                    <span class="icon">
+                        <svg width="20" height="20" viewBox="0 -1.5 20 20" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>video_camera_round [#964]</title>
+                            <desc>Created with Sketch.</desc>
+                            <defs>
+                            </defs>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Dribbble-Light-Preview" transform="translate(-300.000000, -3921.000000)"
+                                    fill="#ffffff">
+                                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                                        <path
+                                            d="M262,3771.3123 L262,3771.36176 L262,3773.76958 L259.767,3772.33333 L262,3771.10006 L262,3771.3123 Z M256,3774.90909 C256,3775.47782 255.552,3775.93939 255,3775.93939 L247,3775.93939 C246.448,3775.93939 246,3775.47782 246,3774.90909 L246,3770.78788 C246,3770.21915 246.448,3769.75758 247,3769.75758 L255,3769.75758 C255.552,3769.75758 256,3770.21915 256,3770.78788 L256,3774.90909 Z M248.11,3765.12121 C248.662,3765.12121 249.11,3765.58382 249.11,3766.15152 C249.11,3766.71921 248.662,3767.18182 248.11,3767.18182 C247.559,3767.18182 247.11,3766.71921 247.11,3766.15152 C247.11,3765.58382 247.559,3765.12121 248.11,3765.12121 L248.11,3765.12121 Z M253.11,3763.06061 C254.213,3763.06061 255.11,3763.98479 255.11,3765.12121 C255.11,3766.25764 254.213,3767.18182 253.11,3767.18182 C252.008,3767.18182 251.11,3766.25764 251.11,3765.12121 C251.11,3763.98479 252.008,3763.06061 253.11,3763.06061 L253.11,3763.06061 Z M262.47,3768.16576 L258,3771.0403 L258,3769.24242 C258,3768.23479 257.38,3767.39818 256.452,3767.21994 C256.809,3766.60382 257.069,3765.89085 257.069,3765.12121 C257.069,3762.84527 255.299,3761 253.09,3761 C251.473,3761 250.099,3761.99321 249.468,3763.41503 C249.056,3763.19661 248.601,3763.06061 248.105,3763.06061 C246.448,3763.06061 245.108,3764.4443 245.108,3766.15152 C245.108,3766.58218 245.112,3766.99224 245.267,3767.36418 C244.57,3767.68667 244,3768.40376 244,3769.24242 L244,3775.42424 C244,3776.5617 245.062,3778 246.167,3778 L256.167,3778 C257.271,3778 258,3776.5617 258,3775.42424 L258,3773.62636 L262.47,3776.50091 C263.137,3776.92952 264,3776.436 264,3775.62721 L264,3769.03945 C264,3768.23067 263.137,3767.73715 262.47,3768.16576 L262.47,3768.16576 Z"
+                                            id="video_camera_round-[#964]">
+
+                                        </path>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </span>
+                    <a href="#video_section" class="popup-youtube"></a>
+                </div>
+                <div class="videos-content">
+                    <h3>
+                        <a href="#video_section">Army vet appalled at hoarding does something incredible</a>
+                    </h3>
+                    <ul class="videos-meta">
+                        <li>4.3M views</li>
+                        <li>1 day ago</li>
+                    </ul>
+                </div>
             </div>
-            <div class="form_field" style="margin-bottom: 28px;">
-                <label class="input_label" for="confirmPassword">Confirm Password:</label>
-                <input class="form_input" type="password" id="confirmPassword" name="confirmPassword" required>
+            <div class="videos_box">
+                <div class="videos-image">
+                    <img src="assets/img/featured/img1.jpg" alt="image">
+                    <span class="duration">03.05</span>
+                    <span class="icon">
+                        <svg width="20" height="20" viewBox="0 -1.5 20 20" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>video_camera_round [#964]</title>
+                            <desc>Created with Sketch.</desc>
+                            <defs>
+                            </defs>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Dribbble-Light-Preview" transform="translate(-300.000000, -3921.000000)"
+                                    fill="#ffffff">
+                                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                                        <path
+                                            d="M262,3771.3123 L262,3771.36176 L262,3773.76958 L259.767,3772.33333 L262,3771.10006 L262,3771.3123 Z M256,3774.90909 C256,3775.47782 255.552,3775.93939 255,3775.93939 L247,3775.93939 C246.448,3775.93939 246,3775.47782 246,3774.90909 L246,3770.78788 C246,3770.21915 246.448,3769.75758 247,3769.75758 L255,3769.75758 C255.552,3769.75758 256,3770.21915 256,3770.78788 L256,3774.90909 Z M248.11,3765.12121 C248.662,3765.12121 249.11,3765.58382 249.11,3766.15152 C249.11,3766.71921 248.662,3767.18182 248.11,3767.18182 C247.559,3767.18182 247.11,3766.71921 247.11,3766.15152 C247.11,3765.58382 247.559,3765.12121 248.11,3765.12121 L248.11,3765.12121 Z M253.11,3763.06061 C254.213,3763.06061 255.11,3763.98479 255.11,3765.12121 C255.11,3766.25764 254.213,3767.18182 253.11,3767.18182 C252.008,3767.18182 251.11,3766.25764 251.11,3765.12121 C251.11,3763.98479 252.008,3763.06061 253.11,3763.06061 L253.11,3763.06061 Z M262.47,3768.16576 L258,3771.0403 L258,3769.24242 C258,3768.23479 257.38,3767.39818 256.452,3767.21994 C256.809,3766.60382 257.069,3765.89085 257.069,3765.12121 C257.069,3762.84527 255.299,3761 253.09,3761 C251.473,3761 250.099,3761.99321 249.468,3763.41503 C249.056,3763.19661 248.601,3763.06061 248.105,3763.06061 C246.448,3763.06061 245.108,3764.4443 245.108,3766.15152 C245.108,3766.58218 245.112,3766.99224 245.267,3767.36418 C244.57,3767.68667 244,3768.40376 244,3769.24242 L244,3775.42424 C244,3776.5617 245.062,3778 246.167,3778 L256.167,3778 C257.271,3778 258,3776.5617 258,3775.42424 L258,3773.62636 L262.47,3776.50091 C263.137,3776.92952 264,3776.436 264,3775.62721 L264,3769.03945 C264,3768.23067 263.137,3767.73715 262.47,3768.16576 L262.47,3768.16576 Z"
+                                            id="video_camera_round-[#964]">
+
+                                        </path>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </span>
+                    <a href="#video_section" class="popup-youtube"></a>
+                </div>
+                <div class="videos-content">
+                    <h3>
+                        <a href="#video_section">Army vet appalled at hoarding does something incredible</a>
+                    </h3>
+                    <ul class="videos-meta">
+                        <li>4.3M views</li>
+                        <li>1 day ago</li>
+                    </ul>
+                </div>
             </div>
-            <div class="form_field">
-                <button class="submit_btn" type="submit">Reset Password</button>
+        </div>
+    </div>
+</section>
+
+<section id="about_section">
+    <div class="container">
+        <div class="about-content section-title">
+            <h2>About Me</h2>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna.</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices
+                gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+            <img src="assets/img/featured/about-img.jpg" alt="image">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices
+                gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+            <div class="btn-box">
+                <a href="#" class="contact-me">Contact Me</a>
+                <a href="mailto:hello@allisondoe.com" class="email">hello@allisondoe.com</a>
             </div>
-        </form> -->
+        </div>
+        <div class="about-info">
+            <div class="d-cell">
+                <ul>
+                    <li> Name: <br><span>AK Thapar</span></li>
+                    <li> Email: <br><span> <a href="mailto:hello@allisondoe.com"
+                                class="email">hello@allisondoe.com</a></span></li>
+                    <li> Role: <br><span>Youtube Influencer</span></li>
+                    <li> Phone: <br><span><a href="tel:+2278549857">+22 7854 9857</a></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="plvideo_section">
+    <div class="container">
+        <div class="section-title">
+            <h2>My Popular Videos</h2>
+            <a class="link-btn" href="/recall-ng/youtube/">See All</a>
+        </div>
+        <div class="pl_video">
+            <div class="featured1">
+                <div class="videos_box">
+                    <div class="videos-image">
+                        <img src="assets/img/featured/img1.jpg" alt="image">
+                        <span class="duration">03.05</span>
+                        <span class="icon">
+                            <svg width="20" height="20" viewBox="0 -1.5 20 20" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>video_camera_round [#964]</title>
+                                <desc>Created with Sketch.</desc>
+                                <defs>
+                                </defs>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="Dribbble-Light-Preview" transform="translate(-300.000000, -3921.000000)"
+                                        fill="#ffffff">
+                                        <g id="icons" transform="translate(56.000000, 160.000000)">
+                                            <path
+                                                d="M262,3771.3123 L262,3771.36176 L262,3773.76958 L259.767,3772.33333 L262,3771.10006 L262,3771.3123 Z M256,3774.90909 C256,3775.47782 255.552,3775.93939 255,3775.93939 L247,3775.93939 C246.448,3775.93939 246,3775.47782 246,3774.90909 L246,3770.78788 C246,3770.21915 246.448,3769.75758 247,3769.75758 L255,3769.75758 C255.552,3769.75758 256,3770.21915 256,3770.78788 L256,3774.90909 Z M248.11,3765.12121 C248.662,3765.12121 249.11,3765.58382 249.11,3766.15152 C249.11,3766.71921 248.662,3767.18182 248.11,3767.18182 C247.559,3767.18182 247.11,3766.71921 247.11,3766.15152 C247.11,3765.58382 247.559,3765.12121 248.11,3765.12121 L248.11,3765.12121 Z M253.11,3763.06061 C254.213,3763.06061 255.11,3763.98479 255.11,3765.12121 C255.11,3766.25764 254.213,3767.18182 253.11,3767.18182 C252.008,3767.18182 251.11,3766.25764 251.11,3765.12121 C251.11,3763.98479 252.008,3763.06061 253.11,3763.06061 L253.11,3763.06061 Z M262.47,3768.16576 L258,3771.0403 L258,3769.24242 C258,3768.23479 257.38,3767.39818 256.452,3767.21994 C256.809,3766.60382 257.069,3765.89085 257.069,3765.12121 C257.069,3762.84527 255.299,3761 253.09,3761 C251.473,3761 250.099,3761.99321 249.468,3763.41503 C249.056,3763.19661 248.601,3763.06061 248.105,3763.06061 C246.448,3763.06061 245.108,3764.4443 245.108,3766.15152 C245.108,3766.58218 245.112,3766.99224 245.267,3767.36418 C244.57,3767.68667 244,3768.40376 244,3769.24242 L244,3775.42424 C244,3776.5617 245.062,3778 246.167,3778 L256.167,3778 C257.271,3778 258,3776.5617 258,3775.42424 L258,3773.62636 L262.47,3776.50091 C263.137,3776.92952 264,3776.436 264,3775.62721 L264,3769.03945 C264,3768.23067 263.137,3767.73715 262.47,3768.16576 L262.47,3768.16576 Z"
+                                                id="video_camera_round-[#964]">
+
+                                            </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </span>
+                        <a href="#video_section" class="popup-youtube"></a>
+                    </div>
+                    <div class="videos-content">
+                        <h3>
+                            <a href="#video_section">Army vet appalled at hoarding does something incredible</a>
+                        </h3>
+                        <ul class="videos-meta">
+                            <li>4.3M views</li>
+                            <li>1 day ago</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="videos_box">
+                    <div class="videos-image">
+                        <img src="assets/img/featured/img1.jpg" alt="image">
+                        <span class="duration">03.05</span>
+                        <span class="icon">
+                            <svg width="20" height="20" viewBox="0 -1.5 20 20" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>video_camera_round [#964]</title>
+                                <desc>Created with Sketch.</desc>
+                                <defs>
+                                </defs>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="Dribbble-Light-Preview" transform="translate(-300.000000, -3921.000000)"
+                                        fill="#ffffff">
+                                        <g id="icons" transform="translate(56.000000, 160.000000)">
+                                            <path
+                                                d="M262,3771.3123 L262,3771.36176 L262,3773.76958 L259.767,3772.33333 L262,3771.10006 L262,3771.3123 Z M256,3774.90909 C256,3775.47782 255.552,3775.93939 255,3775.93939 L247,3775.93939 C246.448,3775.93939 246,3775.47782 246,3774.90909 L246,3770.78788 C246,3770.21915 246.448,3769.75758 247,3769.75758 L255,3769.75758 C255.552,3769.75758 256,3770.21915 256,3770.78788 L256,3774.90909 Z M248.11,3765.12121 C248.662,3765.12121 249.11,3765.58382 249.11,3766.15152 C249.11,3766.71921 248.662,3767.18182 248.11,3767.18182 C247.559,3767.18182 247.11,3766.71921 247.11,3766.15152 C247.11,3765.58382 247.559,3765.12121 248.11,3765.12121 L248.11,3765.12121 Z M253.11,3763.06061 C254.213,3763.06061 255.11,3763.98479 255.11,3765.12121 C255.11,3766.25764 254.213,3767.18182 253.11,3767.18182 C252.008,3767.18182 251.11,3766.25764 251.11,3765.12121 C251.11,3763.98479 252.008,3763.06061 253.11,3763.06061 L253.11,3763.06061 Z M262.47,3768.16576 L258,3771.0403 L258,3769.24242 C258,3768.23479 257.38,3767.39818 256.452,3767.21994 C256.809,3766.60382 257.069,3765.89085 257.069,3765.12121 C257.069,3762.84527 255.299,3761 253.09,3761 C251.473,3761 250.099,3761.99321 249.468,3763.41503 C249.056,3763.19661 248.601,3763.06061 248.105,3763.06061 C246.448,3763.06061 245.108,3764.4443 245.108,3766.15152 C245.108,3766.58218 245.112,3766.99224 245.267,3767.36418 C244.57,3767.68667 244,3768.40376 244,3769.24242 L244,3775.42424 C244,3776.5617 245.062,3778 246.167,3778 L256.167,3778 C257.271,3778 258,3776.5617 258,3775.42424 L258,3773.62636 L262.47,3776.50091 C263.137,3776.92952 264,3776.436 264,3775.62721 L264,3769.03945 C264,3768.23067 263.137,3767.73715 262.47,3768.16576 L262.47,3768.16576 Z"
+                                                id="video_camera_round-[#964]">
+
+                                            </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </span>
+                        <a href="#video_section" class="popup-youtube"></a>
+                    </div>
+                    <div class="videos-content">
+                        <h3>
+                            <a href="#video_section">Army vet appalled at hoarding does something incredible</a>
+                        </h3>
+                        <ul class="videos-meta">
+                            <li>4.3M views</li>
+                            <li>1 day ago</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="featured2">
+                <div class="videos_box">
+                    <div class="videos-image">
+                        <img src="assets/img/featured/img1.jpg" alt="image">
+                        <span class="duration">03.05</span>
+                        <span class="icon">
+                            <svg width="20" height="20" viewBox="0 -1.5 20 20" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>video_camera_round [#964]</title>
+                                <desc>Created with Sketch.</desc>
+                                <defs>
+                                </defs>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="Dribbble-Light-Preview" transform="translate(-300.000000, -3921.000000)"
+                                        fill="#ffffff">
+                                        <g id="icons" transform="translate(56.000000, 160.000000)">
+                                            <path
+                                                d="M262,3771.3123 L262,3771.36176 L262,3773.76958 L259.767,3772.33333 L262,3771.10006 L262,3771.3123 Z M256,3774.90909 C256,3775.47782 255.552,3775.93939 255,3775.93939 L247,3775.93939 C246.448,3775.93939 246,3775.47782 246,3774.90909 L246,3770.78788 C246,3770.21915 246.448,3769.75758 247,3769.75758 L255,3769.75758 C255.552,3769.75758 256,3770.21915 256,3770.78788 L256,3774.90909 Z M248.11,3765.12121 C248.662,3765.12121 249.11,3765.58382 249.11,3766.15152 C249.11,3766.71921 248.662,3767.18182 248.11,3767.18182 C247.559,3767.18182 247.11,3766.71921 247.11,3766.15152 C247.11,3765.58382 247.559,3765.12121 248.11,3765.12121 L248.11,3765.12121 Z M253.11,3763.06061 C254.213,3763.06061 255.11,3763.98479 255.11,3765.12121 C255.11,3766.25764 254.213,3767.18182 253.11,3767.18182 C252.008,3767.18182 251.11,3766.25764 251.11,3765.12121 C251.11,3763.98479 252.008,3763.06061 253.11,3763.06061 L253.11,3763.06061 Z M262.47,3768.16576 L258,3771.0403 L258,3769.24242 C258,3768.23479 257.38,3767.39818 256.452,3767.21994 C256.809,3766.60382 257.069,3765.89085 257.069,3765.12121 C257.069,3762.84527 255.299,3761 253.09,3761 C251.473,3761 250.099,3761.99321 249.468,3763.41503 C249.056,3763.19661 248.601,3763.06061 248.105,3763.06061 C246.448,3763.06061 245.108,3764.4443 245.108,3766.15152 C245.108,3766.58218 245.112,3766.99224 245.267,3767.36418 C244.57,3767.68667 244,3768.40376 244,3769.24242 L244,3775.42424 C244,3776.5617 245.062,3778 246.167,3778 L256.167,3778 C257.271,3778 258,3776.5617 258,3775.42424 L258,3773.62636 L262.47,3776.50091 C263.137,3776.92952 264,3776.436 264,3775.62721 L264,3769.03945 C264,3768.23067 263.137,3767.73715 262.47,3768.16576 L262.47,3768.16576 Z"
+                                                id="video_camera_round-[#964]">
+
+                                            </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </span>
+                        <a href="#video_section" class="popup-youtube"></a>
+                    </div>
+                    <div class="videos-content">
+                        <h3>
+                            <a href="#video_section">Army vet appalled at hoarding does something incredible</a>
+                        </h3>
+                        <ul class="videos-meta">
+                            <li>4.3M views</li>
+                            <li>1 day ago</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="featured3">
+                <div class="videos_box">
+                    <div class="videos-image">
+                        <img src="assets/img/featured/img1.jpg" alt="image">
+                        <span class="duration">03.05</span>
+                        <span class="icon">
+                            <svg width="20" height="20" viewBox="0 -1.5 20 20" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>video_camera_round [#964]</title>
+                                <desc>Created with Sketch.</desc>
+                                <defs>
+                                </defs>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="Dribbble-Light-Preview" transform="translate(-300.000000, -3921.000000)"
+                                        fill="#ffffff">
+                                        <g id="icons" transform="translate(56.000000, 160.000000)">
+                                            <path
+                                                d="M262,3771.3123 L262,3771.36176 L262,3773.76958 L259.767,3772.33333 L262,3771.10006 L262,3771.3123 Z M256,3774.90909 C256,3775.47782 255.552,3775.93939 255,3775.93939 L247,3775.93939 C246.448,3775.93939 246,3775.47782 246,3774.90909 L246,3770.78788 C246,3770.21915 246.448,3769.75758 247,3769.75758 L255,3769.75758 C255.552,3769.75758 256,3770.21915 256,3770.78788 L256,3774.90909 Z M248.11,3765.12121 C248.662,3765.12121 249.11,3765.58382 249.11,3766.15152 C249.11,3766.71921 248.662,3767.18182 248.11,3767.18182 C247.559,3767.18182 247.11,3766.71921 247.11,3766.15152 C247.11,3765.58382 247.559,3765.12121 248.11,3765.12121 L248.11,3765.12121 Z M253.11,3763.06061 C254.213,3763.06061 255.11,3763.98479 255.11,3765.12121 C255.11,3766.25764 254.213,3767.18182 253.11,3767.18182 C252.008,3767.18182 251.11,3766.25764 251.11,3765.12121 C251.11,3763.98479 252.008,3763.06061 253.11,3763.06061 L253.11,3763.06061 Z M262.47,3768.16576 L258,3771.0403 L258,3769.24242 C258,3768.23479 257.38,3767.39818 256.452,3767.21994 C256.809,3766.60382 257.069,3765.89085 257.069,3765.12121 C257.069,3762.84527 255.299,3761 253.09,3761 C251.473,3761 250.099,3761.99321 249.468,3763.41503 C249.056,3763.19661 248.601,3763.06061 248.105,3763.06061 C246.448,3763.06061 245.108,3764.4443 245.108,3766.15152 C245.108,3766.58218 245.112,3766.99224 245.267,3767.36418 C244.57,3767.68667 244,3768.40376 244,3769.24242 L244,3775.42424 C244,3776.5617 245.062,3778 246.167,3778 L256.167,3778 C257.271,3778 258,3776.5617 258,3775.42424 L258,3773.62636 L262.47,3776.50091 C263.137,3776.92952 264,3776.436 264,3775.62721 L264,3769.03945 C264,3768.23067 263.137,3767.73715 262.47,3768.16576 L262.47,3768.16576 Z"
+                                                id="video_camera_round-[#964]">
+
+                                            </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </span>
+                        <a href="#video_section" class="popup-youtube"></a>
+                    </div>
+                    <div class="videos-content">
+                        <h3>
+                            <a href="#video_section">Army vet appalled at hoarding does something incredible</a>
+                        </h3>
+                        <ul class="videos-meta">
+                            <li>4.3M views</li>
+                            <li>1 day ago</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="videos_box">
+                    <div class="videos-image">
+                        <img src="assets/img/featured/img1.jpg" alt="image">
+                        <span class="duration">03.05</span>
+                        <span class="icon">
+                            <svg width="20" height="20" viewBox="0 -1.5 20 20" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>video_camera_round [#964]</title>
+                                <desc>Created with Sketch.</desc>
+                                <defs>
+                                </defs>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="Dribbble-Light-Preview" transform="translate(-300.000000, -3921.000000)"
+                                        fill="#ffffff">
+                                        <g id="icons" transform="translate(56.000000, 160.000000)">
+                                            <path
+                                                d="M262,3771.3123 L262,3771.36176 L262,3773.76958 L259.767,3772.33333 L262,3771.10006 L262,3771.3123 Z M256,3774.90909 C256,3775.47782 255.552,3775.93939 255,3775.93939 L247,3775.93939 C246.448,3775.93939 246,3775.47782 246,3774.90909 L246,3770.78788 C246,3770.21915 246.448,3769.75758 247,3769.75758 L255,3769.75758 C255.552,3769.75758 256,3770.21915 256,3770.78788 L256,3774.90909 Z M248.11,3765.12121 C248.662,3765.12121 249.11,3765.58382 249.11,3766.15152 C249.11,3766.71921 248.662,3767.18182 248.11,3767.18182 C247.559,3767.18182 247.11,3766.71921 247.11,3766.15152 C247.11,3765.58382 247.559,3765.12121 248.11,3765.12121 L248.11,3765.12121 Z M253.11,3763.06061 C254.213,3763.06061 255.11,3763.98479 255.11,3765.12121 C255.11,3766.25764 254.213,3767.18182 253.11,3767.18182 C252.008,3767.18182 251.11,3766.25764 251.11,3765.12121 C251.11,3763.98479 252.008,3763.06061 253.11,3763.06061 L253.11,3763.06061 Z M262.47,3768.16576 L258,3771.0403 L258,3769.24242 C258,3768.23479 257.38,3767.39818 256.452,3767.21994 C256.809,3766.60382 257.069,3765.89085 257.069,3765.12121 C257.069,3762.84527 255.299,3761 253.09,3761 C251.473,3761 250.099,3761.99321 249.468,3763.41503 C249.056,3763.19661 248.601,3763.06061 248.105,3763.06061 C246.448,3763.06061 245.108,3764.4443 245.108,3766.15152 C245.108,3766.58218 245.112,3766.99224 245.267,3767.36418 C244.57,3767.68667 244,3768.40376 244,3769.24242 L244,3775.42424 C244,3776.5617 245.062,3778 246.167,3778 L256.167,3778 C257.271,3778 258,3776.5617 258,3775.42424 L258,3773.62636 L262.47,3776.50091 C263.137,3776.92952 264,3776.436 264,3775.62721 L264,3769.03945 C264,3768.23067 263.137,3767.73715 262.47,3768.16576 L262.47,3768.16576 Z"
+                                                id="video_camera_round-[#964]">
+
+                                            </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </span>
+                        <a href="#video_section" class="popup-youtube"></a>
+                    </div>
+                    <div class="videos-content">
+                        <h3>
+                            <a href="#video_section">Army vet appalled at hoarding does something incredible</a>
+                        </h3>
+                        <ul class="videos-meta">
+                            <li>4.3M views</li>
+                            <li>1 day ago</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section id="channels_section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Featured Channels</h2>
+            <a class="link-btn" href="/recall-ng/youtube/">See All</a>
+        </div>
+
+        <div class="featured-channels">
+            <div class="channels">
+                <a href="#" class="image">
+                    <img src="assets/img/channels/img2.jpg" alt="image">
+                </a>
+                <div class="content">
+                    <h3>
+                        <a href="#">MoonFairy</a>
+                    </h3>
+                    <span>1.5M Subscriber</span>
+                    <a href="#" class="link-btn">Subscribe</a>
+                </div>
+            </div>
+            <div class="channels">
+                <a href="#" class="image">
+                    <img src="assets/img/channels/img2.jpg" alt="image">
+                </a>
+                <div class="content">
+                    <h3>
+                        <a href="#">MoonFairy</a>
+                    </h3>
+                    <span>1.5M Subscriber</span>
+                    <a href="#" class="link-btn">Subscribe</a>
+                </div>
+            </div>
+            <div class="channels">
+                <a href="#" class="image">
+                    <img src="assets/img/channels/img2.jpg" alt="image">
+                </a>
+                <div class="content">
+                    <h3>
+                        <a href="#">MoonFairy</a>
+                    </h3>
+                    <span>1.5M Subscriber</span>
+                    <a href="#" class="link-btn">Subscribe</a>
+                </div>
+            </div>
+            <div class="channels">
+                <a href="#" class="image">
+                    <img src="assets/img/channels/img2.jpg" alt="image">
+                </a>
+                <div class="content">
+                    <h3>
+                        <a href="#">MoonFairy</a>
+                    </h3>
+                    <span>1.5M Subscriber</span>
+                    <a href="#" class="link-btn">Subscribe</a>
+                </div>
+            </div>
+        </div>
 
     </div>
-</div>
+</section>
+
+<section id="contact_section">
+    <div class="container">
+        <div class="join-content">
+            <h2>Join With Me</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore.</p>
+            <div class="btn-box">
+                <a href="#" class="default-btn">Contact Me</a>
+                <a href="mailto:hello@allisondoe.com" class="email">hello@allisondoe.com</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-area">
+    <div class="container">
+        <p>© Recall is Proudly Owned by <a href="#" target="_blank">AK Thapar</a></p>
+        <ul>
+            <li><a href="#" target="_blank" class="facebook"><svg width="35" height="35" viewBox="0 0 48 48" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="24" r="20" fill="#3B5998" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M29.315 16.9578C28.6917 16.8331 27.8498 16.74 27.3204 16.74C25.8867 16.74 25.7936 17.3633 25.7936 18.3607V20.1361H29.3774L29.065 23.8137H25.7936V35H21.3063V23.8137H19V20.1361H21.3063V17.8613C21.3063 14.7453 22.7708 13 26.4477 13C27.7252 13 28.6602 13.187 29.8753 13.4363L29.315 16.9578Z"
+                            fill="white" />
+                    </svg></a>
+            </li>
+            <li><a href="#" target="_blank" class="twitter">
+                    <svg width="35" height="35" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="24" r="20" fill="#1DA1F2" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M36 16.3086C35.1177 16.7006 34.1681 16.9646 33.1722 17.0838C34.1889 16.4742 34.9697 15.5095 35.3368 14.36C34.3865 14.9247 33.3314 15.3335 32.2107 15.5551C31.3123 14.5984 30.0316 14 28.6165 14C25.8975 14 23.6928 16.2047 23.6928 18.9237C23.6928 19.3092 23.7368 19.6852 23.8208 20.046C19.7283 19.8412 16.1005 17.8805 13.6719 14.9015C13.2479 15.6287 13.0055 16.4742 13.0055 17.3766C13.0055 19.0845 13.8735 20.5916 15.1958 21.4747C14.3878 21.4491 13.6295 21.2275 12.9647 20.8587V20.9203C12.9647 23.3066 14.663 25.296 16.9141 25.7496C16.5013 25.8616 16.0661 25.9224 15.6174 25.9224C15.2998 25.9224 14.991 25.8912 14.6902 25.8336C15.3166 27.7895 17.1357 29.2134 19.2899 29.2534C17.6052 30.5733 15.4822 31.3612 13.1751 31.3612C12.7767 31.3612 12.3848 31.338 12 31.2916C14.1791 32.6884 16.7669 33.5043 19.5475 33.5043C28.6037 33.5043 33.5562 26.0016 33.5562 19.4956C33.5562 19.282 33.5522 19.0693 33.5418 18.8589C34.5049 18.1629 35.34 17.2958 36 16.3086Z"
+                            fill="white" />
+                    </svg></a>
+            </li>
+            <li><a href="#" target="_blank" class="instagram">
+                    <svg width="35" height="35" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="24" r="20" fill="#C13584" />
+                        <path
+                            d="M24 14.1622C27.2041 14.1622 27.5837 14.1744 28.849 14.2321C30.019 14.2855 30.6544 14.481 31.0773 14.6453C31.6374 14.863 32.0371 15.123 32.457 15.5429C32.877 15.9629 33.137 16.3626 33.3547 16.9227C33.519 17.3456 33.7145 17.981 33.7679 19.1509C33.8256 20.4163 33.8378 20.7958 33.8378 23.9999C33.8378 27.2041 33.8256 27.5836 33.7679 28.849C33.7145 30.019 33.519 30.6543 33.3547 31.0772C33.137 31.6373 32.877 32.0371 32.4571 32.457C32.0371 32.8769 31.6374 33.1369 31.0773 33.3546C30.6544 33.519 30.019 33.7144 28.849 33.7678C27.5839 33.8255 27.2044 33.8378 24 33.8378C20.7956 33.8378 20.4162 33.8255 19.151 33.7678C17.981 33.7144 17.3456 33.519 16.9227 33.3546C16.3626 33.1369 15.9629 32.8769 15.543 32.457C15.1231 32.0371 14.863 31.6373 14.6453 31.0772C14.481 30.6543 14.2855 30.019 14.2321 28.849C14.1744 27.5836 14.1622 27.2041 14.1622 23.9999C14.1622 20.7958 14.1744 20.4163 14.2321 19.1509C14.2855 17.981 14.481 17.3456 14.6453 16.9227C14.863 16.3626 15.123 15.9629 15.543 15.543C15.9629 15.123 16.3626 14.863 16.9227 14.6453C17.3456 14.481 17.981 14.2855 19.151 14.2321C20.4163 14.1744 20.7959 14.1622 24 14.1622ZM24 12C20.741 12 20.3323 12.0138 19.0524 12.0722C17.7752 12.1305 16.9028 12.3333 16.1395 12.63C15.3504 12.9366 14.6812 13.3469 14.0141 14.0141C13.3469 14.6812 12.9366 15.3504 12.63 16.1395C12.3333 16.9028 12.1305 17.7751 12.0722 19.0524C12.0138 20.3323 12 20.741 12 23.9999C12 27.259 12.0138 27.6676 12.0722 28.9475C12.1305 30.2248 12.3333 31.0971 12.63 31.8604C12.9366 32.6495 13.3469 33.3187 14.0141 33.9859C14.6812 34.653 15.3504 35.0633 16.1395 35.3699C16.9028 35.6666 17.7752 35.8694 19.0524 35.9277C20.3323 35.9861 20.741 35.9999 24 35.9999C27.259 35.9999 27.6677 35.9861 28.9476 35.9277C30.2248 35.8694 31.0972 35.6666 31.8605 35.3699C32.6496 35.0633 33.3188 34.653 33.9859 33.9859C34.653 33.3187 35.0634 32.6495 35.37 31.8604C35.6667 31.0971 35.8695 30.2248 35.9278 28.9475C35.9862 27.6676 36 27.259 36 23.9999C36 20.741 35.9862 20.3323 35.9278 19.0524C35.8695 17.7751 35.6667 16.9028 35.37 16.1395C35.0634 15.3504 34.653 14.6812 33.9859 14.0141C33.3188 13.3469 32.6496 12.9366 31.8605 12.63C31.0972 12.3333 30.2248 12.1305 28.9476 12.0722C27.6677 12.0138 27.259 12 24 12Z"
+                            fill="white" />
+                        <path
+                            d="M24.0059 17.8433C20.6026 17.8433 17.8438 20.6021 17.8438 24.0054C17.8438 27.4087 20.6026 30.1675 24.0059 30.1675C27.4092 30.1675 30.1681 27.4087 30.1681 24.0054C30.1681 20.6021 27.4092 17.8433 24.0059 17.8433ZM24.0059 28.0054C21.7968 28.0054 20.0059 26.2145 20.0059 24.0054C20.0059 21.7963 21.7968 20.0054 24.0059 20.0054C26.2151 20.0054 28.0059 21.7963 28.0059 24.0054C28.0059 26.2145 26.2151 28.0054 24.0059 28.0054Z"
+                            fill="white" />
+                        <path
+                            d="M31.8507 17.5963C31.8507 18.3915 31.206 19.0363 30.4107 19.0363C29.6154 19.0363 28.9707 18.3915 28.9707 17.5963C28.9707 16.801 29.6154 16.1562 30.4107 16.1562C31.206 16.1562 31.8507 16.801 31.8507 17.5963Z"
+                            fill="white" />
+                    </svg></a>
+            </li>
+        </ul>
+    </div>
+</footer>
